@@ -1,0 +1,27 @@
+.iframeMain {
+    width: 200px;
+    -webkit-transition: all 1000ms;
+    -moz-transition: all 1000ms;
+    -ms-transition: all 1000ms;
+    -o-transition: all 1000ms;
+    transition: all 1000ms;
+}
+
+.bodyMain {
+    width: 85%;
+    margin-right: 15%;
+}
+
+.bodyContract {
+    width: 100%;
+    margin-right: 0px;
+}
+
+.iframeContract {
+    width: 0px;
+    -webkit-transition: all 1000ms;
+    -moz-transition: all 1000ms;
+    -ms-transition: all 1000ms;
+    -o-transition: all 1000ms;
+    transition: all 1000ms;
+}
