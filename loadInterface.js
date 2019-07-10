@@ -13,14 +13,13 @@
     iframe.style.right = '0px';
     iframe.style.bottom = '0px';
     iframe.style.top = '0px';
-    iframe.style.maxWidth = '15%';
+    iframe.style.width = '15%';
     iframe.style.height = '100%';
     iframe.style.border = '1px solid black';
     iframe.style.backgroundColor = 'red';
     body.style.width = '85%';
     body.style.marginLeft = '0px';
     body.style.marginRight = '15%';
-    html.width = '80%';
     iframe.addEventListener('load', function (e) {
         iframe.style.transition = '.3s';
         var btn = document.createElement("button");
