@@ -8,6 +8,12 @@
     const html = document.querySelector('html');
     const body = document.querySelector('body');
     const iframe = document.createElement('iframe');
+    const gb = document.getElementById('gb');
+    const masthead = document.getElementById('masthead');
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const facebook = document.querySelector('._50ti');
+
     iframe.style.position = 'fixed';
     iframe.style.zIndex = '2147483647';
     iframe.style.right = '0px';
@@ -17,9 +23,37 @@
     iframe.style.height = '100%';
     iframe.style.border = '1px solid black';
     iframe.style.backgroundColor = 'red';
+    //html.style.width = '85%';
     body.style.width = '85%';
     body.style.marginLeft = '0px';
     body.style.marginRight = '15%';
+    body.style.position = 'relative';
+    //html.style.position = 'relative';
+    // Get the element with id="myDIV" (a div), then get all <h2>, <div> and <span> elements inside <div>
+    /*var x = document.body.querySelectorAll("div");
+
+    // Create a for loop and set the background color of all <h2>, <div> and <span> elements in <div>
+    var i;
+    for (i = 0; i < x.length; i++) {
+       x[i].style.marginRight = '20px';
+    }*/
+    if(gb){
+        gb.style.maxWidth = '85%';
+    }
+    if(nav){
+        nav.style.maxWidth = '85%';
+    }
+    if(header){
+        header.style.maxWidth = '85%';
+        //header.style.marginLeft = '15%';
+    }
+    if(masthead){
+        masthead.style.maxWidth = '85%';
+        //header.style.marginLeft = '15%';
+    }
+    if(facebook){
+        facebook.style.paddingRight = '15%';
+    }
     iframe.addEventListener('load', function (e) {
         iframe.style.transition = '.3s';
         var btn = document.createElement("button");
@@ -29,10 +63,28 @@
             //iframe.style.display = 'none';
             body.style.marginRight = '0px';
             body.style.width = '100%';
+            //html.style.width = '100%';
             iframe.style.maxWidth = '0%';
             body.style.transition = '.3s';
             iframe.style.transition = 'maxWidth .3s';
             html.removeChild(iframe);
+            if(header){
+                header.style.maxWidth = '100%';
+                //header.style.marginLeft = '0%';
+            }
+            if(gb){
+                gb.style.maxWidth = '100%';
+            }
+            if(nav){
+                nav.style.maxWidth = '100%';
+            }
+            if(masthead){
+                masthead.style.maxWidth = '100%';
+                //header.style.marginLeft = '15%';
+            }
+            if(facebook){
+                facebook.style.paddingRight = '0';
+            }
             chrome.runtime.sendMessage({
                 value: false
             }, function(value) {
