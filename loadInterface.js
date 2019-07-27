@@ -5,15 +5,19 @@
  *
  */
 (function() {
+    /***************************ADD NEW PAGES HERE************************/
     const html = document.querySelector('html');
     const body = document.querySelector('body');
     const iframe = document.createElement('iframe');
-    const gb = document.getElementById('gb');
-    const masthead = document.getElementById('masthead');
-    const header = document.querySelector('header');
-    const nav = document.querySelector('nav');
-    const facebook = document.querySelector('._50ti');
-    const topbar = document.getElementById('Top_bar');
+    const elements = [document.getElementById('gb')];
+    elements.push(document.getElementById('masthead'));
+    elements.push(document.querySelector('header'));
+    elements.push(document.querySelector('nav'));
+    elements.push(document.querySelector('._50ti'));
+    elements.push(document.getElementById('Top_bar'));
+    elements.push(document.getElementById('masthead-container'));
+    /**************************ADD NEW PAGES ABOVE**************************/
+
     iframe.style.position = 'fixed';
     iframe.style.zIndex = '2147483647';
     iframe.style.right = '0px';
@@ -23,37 +27,14 @@
     iframe.style.height = '100%';
     iframe.style.border = '1px solid black';
     iframe.style.backgroundColor = 'red';
-    //html.style.width = '85%';
     body.style.width = '85%';
     body.style.marginRight = '15%';
     body.style.position = 'relative';
-    //html.style.position = 'relative';
-    // Get the element with id="myDIV" (a div), then get all <h2>, <div> and <span> elements inside <div>
-    /*var x = document.body.querySelectorAll("div");
-
-    // Create a for loop and set the background color of all <h2>, <div> and <span> elements in <div>
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.width = '85%';
-    }*/
-    if(gb){
-        gb.style.position = 'relative';
-    }
-    if(nav){
-        nav.style.position = 'relative';
-    }
-    if(header){
-        header.style.position = 'relative';
-    }
-    if(masthead){
-        masthead.style.position = 'relative';
-    }
-    if(facebook){
-        facebook.style.position = 'relative';
-    }
-    if(topbar){
-        topbar.style.position = 'relative';
-    }
+    elements.forEach(element => {
+        if(element) {
+            element.style.position = 'relative';
+        }
+    });
     iframe.addEventListener('load', function (e) {
         iframe.style.transition = '.3s';
         var btn = document.createElement("button");
@@ -69,25 +50,11 @@
             body.style.transition = '.3s';
             iframe.style.transition = 'maxWidth .3s';
             html.removeChild(iframe);
-            if(header){
-                header.style.position = 'relative';
-                //header.style.marginLeft = '0%';
-            }
-            if(gb){
-                gb.style.position = 'relative';
-            }
-            if(nav){
-                nav.style.position = 'relative';
-            }
-            if(masthead){
-                masthead.style.position = 'relative';
-            }
-            if(facebook){
-                facebook.style.position = 'relative';
-            }
-            if(topbar){
-                topbar.style.position = 'relative';
-            }
+            elements.forEach(element => {
+                if(element) {
+                    element.style.position = 'relative';
+                }
+            });
             chrome.runtime.sendMessage({
                 value: false
             }, function(value) {
